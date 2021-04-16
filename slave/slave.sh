@@ -1,13 +1,12 @@
 #!/bin/bash
-echo "host replication all 0.0.0.0/0 md5" >> "$PGDATA/pg_hba.conf"
+# echo "host replication all 0.0.0.0/0 md5" >> "$PGDATA/pg_hba.conf"
 
 set -e
 # export PGPASSWORD="$POSTGRESQL_PASSWORD"
 # psql登录参考：https://stackoverflow.com/questions/3582552/what-is-the-format-for-the-postgresql-connection-string-url
-psql  -U postgres <<-EOSQL
-    CREATE ROLE user_name1 REPLICATION LOGIN PASSWORD 'my_password';
-    CREATE database oil with owner user_name1;
-EOSQL
+# psql  postgresql://postgres@localhost <<-EOSQL
+#     CREATE ROLE user_name1 REPLICATION LOGIN PASSWORD 'my_password';
+# EOSQL
 
 
 # cat >> ${PGDATA}/postgresql.conf <<EOF

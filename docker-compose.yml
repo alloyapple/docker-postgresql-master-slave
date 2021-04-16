@@ -3,6 +3,7 @@ version: "3.0"
 services:
   master_db:
     build: ./master
+    container_name: master_db
     environment:
       - POSTGRESQL_REPLICATION_MODE=master
       - POSTGRES_PASSWORD=123
@@ -17,6 +18,7 @@ services:
   
   slave_db:
     build: ./slave
+    container_name: slave_db
     environment:
       - POSTGRESQL_REPLICATION_MODE=master
       - POSTGRES_PASSWORD=123
