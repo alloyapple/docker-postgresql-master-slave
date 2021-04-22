@@ -14,9 +14,11 @@ EOSQL
 
 
 cat >> ${PGDATA}/postgresql.conf <<EOF
-wal_level = replica
+wal_level = logical
 wal_sender_timeout = 60s
 archive_mode = on
 archive_command = 'cd .'
 max_wal_senders = 8
+synchronous_standby_names = ''
+hot_standby=on
 EOF
