@@ -4,6 +4,8 @@ services:
   master_db:
     build: ./master
     container_name: master_db
+    volumes: 
+      - ./master/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
     environment:
       - POSTGRESQL_REPLICATION_MODE=master
       - POSTGRES_PASSWORD=123
